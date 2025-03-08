@@ -2,6 +2,7 @@ pipeline {
     agent { label "builder1" }
     tools {
         maven "Mvn399"
+        docker "docker"
     }
     stages {
         stage('Stage1 - Clone the project') {
