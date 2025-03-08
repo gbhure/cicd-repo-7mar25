@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Stage1 - Clone the project') {
+            steps {
+                echo 'Cloning the project..'
+                git branch: 'main', url: 'https://github.com/gbhure/mvn-proj-31aug24.git'
+                sh 'ls'
+            }
+        }
+        stage('Stage2 - Build the project') {
+            steps {
+                echo 'Building the maven project'
+                sh 'mvn install'
+            }
+        }
+        stage('Stage3 - Test the project') {
+            steps {
+                echo 'Test the project'
+            }
+        }
+    }
+}
